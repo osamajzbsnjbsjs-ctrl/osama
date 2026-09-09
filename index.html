@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osama | AI Web Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #050814; /* Midnight blue */
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        span {
+            color: #D4AF37; /* Metallic Gold */
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #C5001A; /* Crimson Red */
+            text-shadow: 0 0 15px rgba(197, 0, 26, 0.6);
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 5%;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        .glow-btn {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #C5001A;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(197, 0, 26, 0.4);
+            transition: 0.3s;
+        }
+
+        .glow-btn:hover {
+            background: #C5001A;
+            box-shadow: 0 0 20px rgba(197, 0, 26, 0.8);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #hero-title {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #hero-subtitle {
+            font-size: 2rem;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 4rem 5%;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: #0a0f1e;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .glow-red {
+            border: 1px solid #C5001A;
+            box-shadow: 0 0 15px rgba(197, 0, 26, 0.2);
+        }
+
+        .glow-red:hover {
+            box-shadow: 0 0 25px rgba(197, 0, 26, 0.6);
+        }
+
+        .glow-gold {
+            border: 1px solid #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .glow-gold:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">O.S.</div>
+        <button id="lang-btn" class="glow-btn">عربي</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Hi, I'm <span>Osama</span></h1>
+            <h2 id="hero-subtitle">AI Web Developer</h2>
+            <p id="hero-desc">Bridging the gap between artificial intelligence and interactive 3D web experiences.</p>
+        </div>
+    </header>
+
+    <section class="skills">
+        <h2 id="skills-title" class="section-title">Core Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card glow-red">
+                <h3>JavaScript / HTML / CSS</h3>
+                <p id="skill-1-desc">Building dynamic, interactive frontend layouts.</p>
+            </div>
+            <div class="skill-card glow-gold">
+                <h3>AI Integration</h3>
+                <p id="skill-2-desc">Connecting web apps to powerful LLM APIs and tools.</p>
+            </div>
+            <div class="skill-card glow-red">
+                <h3>3D Web Mechanics</h3>
+                <p id="skill-3-desc">Developing browser-based engines and mechanics.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const translations = {
+            en: {
+                btnText: "عربي",
+                heroTitle: "Hi, I'm <span>Osama</span>",
+                heroSubtitle: "AI Web Developer",
+                heroDesc: "Bridging the gap between artificial intelligence and interactive 3D web experiences.",
+                skillsTitle: "Core Skills",
+                skill1Desc: "Building dynamic, interactive frontend layouts.",
+                skill2Desc: "Connecting web apps to powerful LLM APIs and tools.",
+                skill3Desc: "Developing browser-based engines and mechanics."
+            },
+            ar: {
+                btnText: "English",
+                heroTitle: "مرحباً، أنا <span>أسامة</span>",
+                heroSubtitle: "مطور ويب ذكاء اصطناعي",
+                heroDesc: "سد الفجوة بين الذكاء الاصطناعي وتجارب الويب التفاعلية ثلاثية الأبعاد.",
+                skillsTitle: "المهارات الأساسية",
+                skill1Desc: "بناء واجهات أمامية ديناميكية وتفاعلية.",
+                skill2Desc: "ربط تطبيقات الويب بواجهات برمجة الذكاء الاصطناعي.",
+                skill3Desc: "تطوير محركات وآليات الألعاب عبر المتصفح."
+            }
+        };
+
+        let currentLang = "en";
+        const langBtn = document.getElementById("lang-btn");
+
+        langBtn.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "ar" : "en";
+            
+            // Switch layout direction for Arabic
+            document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+            
+            // Update text content
+            langBtn.textContent = translations[currentLang].btnText;
+            document.getElementById("hero-title").innerHTML = translations[currentLang].heroTitle;
+            document.getElementById("hero-subtitle").textContent = translations[currentLang].heroSubtitle;
+            document.getElementById("hero-desc").textContent = translations[currentLang].heroDesc;
+            document.getElementById("skills-title").textContent = translations[currentLang].skillsTitle;
+            document.getElementById("skill-1-desc").textContent = translations[currentLang].skill1Desc;
+            document.getElementById("skill-2-desc").textContent = translations[currentLang].skill2Desc;
+            document.getElementById("skill-3-desc").textContent = translations[currentLang].skill3Desc;
+        });
+    </script>
+</body>
+</html>

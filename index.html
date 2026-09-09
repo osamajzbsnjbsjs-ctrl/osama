@@ -1,211 +1,397 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osama | AI Web Developer</title>
+    <title>NAMA ACADEMY | Osama - AI Web Developer</title>
+    <!-- استدعاء الخطوط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #050814; /* Midnight blue */
-            color: #ffffff;
-            transition: all 0.3s ease;
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        span {
-            color: #D4AF37; /* Metallic Gold */
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        /* الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* القسم الرئيسي (Hero) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 0 8%;
+            padding-top: 80px;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .hero-text .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn:hover {
+            background: #0ea5e9;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+        }
+
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-img img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            border: 2px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* قسم الخدمات (Services) */
+        .services {
+            padding: 100px 8%;
+            background: #1e293b;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #C5001A; /* Crimson Red */
-            text-shadow: 0 0 15px rgba(197, 0, 26, 0.6);
+            margin-bottom: 50px;
+            font-weight: 700;
         }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 1.5rem 5%;
-            align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        .section-title span {
+            color: #38bdf8;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #D4AF37;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .glow-btn {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #C5001A;
-            padding: 0.5rem 1.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(197, 0, 26, 0.4);
+        .service-card {
+            background: #0f172a;
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
             transition: 0.3s;
         }
 
-        .glow-btn:hover {
-            background: #C5001A;
-            box-shadow: 0 0 20px rgba(197, 0, 26, 0.8);
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        #hero-title {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-
-        #hero-subtitle {
-            font-size: 2rem;
-            color: #aaaaaa;
+        .service-card i {
+            font-size: 2.5rem;
+            color: #38bdf8;
             margin-bottom: 20px;
         }
 
-        /* Skills Section */
-        .skills {
-            padding: 4rem 5%;
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
         }
 
-        .skills-grid {
+        .service-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* قسم التواصل (Contact) */
+        .contact {
+            padding: 100px 8%;
+        }
+
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            background: #1e293b;
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
         }
 
-        .skill-card {
-            background: #0a0f1e;
-            padding: 2rem;
-            border-radius: 10px;
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #f8fafc;
+        }
+
+        .info-item i {
+            color: #38bdf8;
+            font-size: 1.2rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: #0f172a;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #38bdf8;
+            outline: none;
+        }
+
+        /* تذييل الصفحة (Footer) */
+        footer {
             text-align: center;
-            transition: transform 0.3s;
+            padding: 30px;
+            background: #0b1120;
+            color: #94a3b8;
+            border-top: 1px solid rgba(56, 189, 248, 0.1);
         }
 
-        .skill-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .glow-red {
-            border: 1px solid #C5001A;
-            box-shadow: 0 0 15px rgba(197, 0, 26, 0.2);
-        }
-
-        .glow-red:hover {
-            box-shadow: 0 0 25px rgba(197, 0, 26, 0.6);
-        }
-
-        .glow-gold {
-            border: 1px solid #D4AF37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .glow-gold:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        /* التوافق مع الهواتف */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">O.S.</div>
-        <button id="lang-btn" class="glow-btn">عربي</button>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 id="hero-title">Hi, I'm <span>Osama</span></h1>
-            <h2 id="hero-subtitle">AI Web Developer</h2>
-            <p id="hero-desc">Bridging the gap between artificial intelligence and interactive 3D web experiences.</p>
-        </div>
+    <!-- الهيدر -->
+    <header>
+        <a href="#" class="logo">NAMA <span>ACADEMY</span></a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <section class="skills">
-        <h2 id="skills-title" class="section-title">Core Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card glow-red">
-                <h3>JavaScript / HTML / CSS</h3>
-                <p id="skill-1-desc">Building dynamic, interactive frontend layouts.</p>
+    <!-- القسم الرئيسي -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <div class="badge">AI Web Developer</div>
+            <h1>Hello, I'm <span>Osama</span></h1>
+            <p>Welcome to Nama Academy Portfolio. I craft high-performance, modern websites powered by cutting-edge AI technologies and smart web development solutions.</p>
+            
+            <div class="btn-group">
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
             </div>
-            <div class="skill-card glow-gold">
-                <h3>AI Integration</h3>
-                <p id="skill-2-desc">Connecting web apps to powerful LLM APIs and tools.</p>
+        </div>
+
+        <div class="hero-img">
+            <img src="osama.png" alt="Osama - AI Web Developer">
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="services">
+        <h2 class="section-title">My <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>AI Web Development</h3>
+                <p>Building responsive, dynamic, and lightning-fast websites integrated with modern AI utilities and sleek interfaces.</p>
             </div>
-            <div class="skill-card glow-red">
-                <h3>3D Web Mechanics</h3>
-                <p id="skill-3-desc">Developing browser-based engines and mechanics.</p>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX Design</h3>
+                <p>Designing immersive dark-mode layouts with neon glowing accents, customized for modern web standards.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-gamepad"></i>
+                <h3>Interactive 3D Web Apps</h3>
+                <p>Creating browser-based interactive 3D elements, games, and customized digital business cards.</p>
             </div>
         </div>
     </section>
 
-    <script>
-        const translations = {
-            en: {
-                btnText: "عربي",
-                heroTitle: "Hi, I'm <span>Osama</span>",
-                heroSubtitle: "AI Web Developer",
-                heroDesc: "Bridging the gap between artificial intelligence and interactive 3D web experiences.",
-                skillsTitle: "Core Skills",
-                skill1Desc: "Building dynamic, interactive frontend layouts.",
-                skill2Desc: "Connecting web apps to powerful LLM APIs and tools.",
-                skill3Desc: "Developing browser-based engines and mechanics."
-            },
-            ar: {
-                btnText: "English",
-                heroTitle: "مرحباً، أنا <span>أسامة</span>",
-                heroSubtitle: "مطور ويب ذكاء اصطناعي",
-                heroDesc: "سد الفجوة بين الذكاء الاصطناعي وتجارب الويب التفاعلية ثلاثية الأبعاد.",
-                skillsTitle: "المهارات الأساسية",
-                skill1Desc: "بناء واجهات أمامية ديناميكية وتفاعلية.",
-                skill2Desc: "ربط تطبيقات الويب بواجهات برمجة الذكاء الاصطناعي.",
-                skill3Desc: "تطوير محركات وآليات الألعاب عبر المتصفح."
-            }
-        };
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Build Something Together</h3>
+                <p>Have a project in mind or want to collaborate with Nama Academy? Drop a message and let's get started.</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>osama@namaacademy.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bursa, Turkey</span>
+                </div>
+            </div>
 
-        let currentLang = "en";
-        const langBtn = document.getElementById("lang-btn");
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        langBtn.addEventListener("click", () => {
-            currentLang = currentLang === "en" ? "ar" : "en";
-            
-            // Switch layout direction for Arabic
-            document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
-            
-            // Update text content
-            langBtn.textContent = translations[currentLang].btnText;
-            document.getElementById("hero-title").innerHTML = translations[currentLang].heroTitle;
-            document.getElementById("hero-subtitle").textContent = translations[currentLang].heroSubtitle;
-            document.getElementById("hero-desc").textContent = translations[currentLang].heroDesc;
-            document.getElementById("skills-title").textContent = translations[currentLang].skillsTitle;
-            document.getElementById("skill-1-desc").textContent = translations[currentLang].skill1Desc;
-            document.getElementById("skill-2-desc").textContent = translations[currentLang].skill2Desc;
-            document.getElementById("skill-3-desc").textContent = translations[currentLang].skill3Desc;
-        });
-    </script>
+    <!-- تذييل الصفحة -->
+    <footer>
+        <p>&copy; 2026 Nama Academy & Osama. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
